@@ -21,6 +21,7 @@ public class Immagine extends ElementoMultimediale {
     }
 
     public void show() {
+        System.out.println("Titolo: " + titolo);
         System.out.print("Luce schermo: ");
         for (int i = 0; i < luminosita; i++) {
             System.out.print("*");

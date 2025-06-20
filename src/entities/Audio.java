@@ -27,10 +27,11 @@ public class Audio extends ElementoMultimediale implements Riproducibile {
     @Override
     public void play() {
         for (int i = 0; i < durata; i++) {
+            String p = "";
             for (int j = 0; j < volume; j++) {
-                System.out.print(titolo + "!");
+                p = p + "!";
             }
-            System.out.println();
+            System.out.println(titolo + p);
         }
     }
 

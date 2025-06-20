@@ -29,6 +29,10 @@ public class Main {
                     elementi[i] = new Immagine(titolo, luminositaImmagine);
                     System.out.println("--------------------");
 
+                    if (elementi[i] instanceof Immagine) {
+                        ((Immagine) elementi[i]).aumentaLuminosita();
+                    }
+
                     elementi[i].esegui();
                     break;
                 case 2:
@@ -41,6 +45,13 @@ public class Main {
                     System.out.println("--------------------");
 
                     elementi[i] = new Audio(titolo, durataAudio, volumeAudio);
+
+                    //Commento per vedere se la logica è giusta
+                  /*  if (elementi[i] instanceof Audio) {
+                        ((Audio) elementi[i]).alzaVolume();
+                    }
+
+                   */
                     elementi[i].esegui();
                     break;
                 case 3:
@@ -54,6 +65,10 @@ public class Main {
                     int luminositaVideo = scanner.nextInt();
 
                     elementi[i] = new Video(titolo, durataVideo, volumeVideo, luminositaVideo);
+                    if (elementi[i] instanceof Video) {
+                        ((Video) elementi[i]).aumentaLuminosita();
+                        ((Video) elementi[i]).abbassaVolume();
+                    }
                     System.out.println("--------------------");
                     elementi[i].esegui();
                     break;
@@ -64,5 +79,8 @@ public class Main {
             }
         }
 
+    }
+
+    private static void aumentaLuminosita() {
     }
 }
