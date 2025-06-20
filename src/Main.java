@@ -9,17 +9,21 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ElementoMultimediale[] elementi = new ElementoMultimediale[5];
+        boolean continua = true;
 
-        for (int i = 0; i < elementi.length; i++) {
-            System.out.println("Scegli il contenuto da eseguire: [1: Immagine - 2: Audio - 3:Video] ");
+        for (int i = 0; i < elementi.length && continua; i++) {
+            System.out.println("Scegli il contenuto multimediale da eseguire: [0: Per uscire dal programma | 1: Immagine | 2: Audio | 3:Video] ");
             int tipo = scanner.nextInt();
             scanner.nextLine();
 
-            System.out.println("Inserisci titolo del contenuto: ");
-            String titolo = scanner.nextLine();
-
             switch (tipo) {
+                case 0:
+                    System.out.println("Uscita dal programma...");
+                    continua = false;
+                    break;
                 case 1:
+                    System.out.println("Inserisci titolo del contenuto: ");
+                    String titolo = scanner.nextLine();
                     System.out.println("Inserisci la luminosità: ");
                     int luminositaImmagine = scanner.nextInt();
                     elementi[i] = new Immagine(titolo, luminositaImmagine);
@@ -28,6 +32,8 @@ public class Main {
                     elementi[i].esegui();
                     break;
                 case 2:
+                    System.out.println("Inserisci titolo del contenuto: ");
+                    titolo = scanner.nextLine();
                     System.out.println("Inserisci la durata: ");
                     int durataAudio = scanner.nextInt();
                     System.out.println("Inserisci il volume: ");
@@ -38,6 +44,8 @@ public class Main {
                     elementi[i].esegui();
                     break;
                 case 3:
+                    System.out.println("Inserisci titolo del contenuto: ");
+                    titolo = scanner.nextLine();
                     System.out.println("Inserisci la durata: ");
                     int durataVideo = scanner.nextInt();
                     System.out.println("Inserisci il volume: ");
@@ -51,7 +59,10 @@ public class Main {
                     break;
                 default:
                     System.out.println("Tipo non valido !");
+                    i--;
+                    break;
             }
         }
+
     }
 }
